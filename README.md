@@ -2,6 +2,7 @@
 Proyectos y trabajos del curso de bases de datos I, en la Universidad del Valle 
 
 ## 1. Entrega CRUD agenda - Conectividad Java, PostgreSQL
+Carpeta: Agenda
 ### Tecnologías usadas 
 1. Lenguaje: Java 
 2. Vistas: JavaFX con Scene Builder
