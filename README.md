@@ -26,15 +26,15 @@ La clase principal es Agenda y se encuentra en Agenda/src/Agenda.
 
 El nombre de la base de datos es 'agenda'. El nombre de la tabla de contactos es 'contacto'. Asegúrese que usted cuente con esta estructura.
 <p align="center">
-  <img src="https://github.com/DylanJo2002/DataBasesCourse/blob/main/Imagenes/Agenda/Estructura%20tabla%20contacto.PNG" width="1000" title="hover text">    
+  <img src="https://github.com/DylanJo2002/DataBasesCourse/blob/main/Imagenes/Agenda/Estructura%20tabla%20contacto.PNG" width="900" title="hover text">    
 </p>
 El código SQL para crear la tabla es el siguiente:
 <p align="center">
-  <img src="https://github.com/DylanJo2002/DataBasesCourse/blob/main/Imagenes/Agenda/create%20table%20contacto.PNG" width="1000" title="hover text">    
+  <img src="https://github.com/DylanJo2002/DataBasesCourse/blob/main/Imagenes/Agenda/create%20table%20contacto.PNG" width="900" title="hover text">    
 </p>  
      
 ### VALIDACIONES DE DATOS: 
-El software valida los datos incluso antes de insertarlos en la base de datos. Este le informa si usted ingresó un dato inválido. Estos son los rangos aceptados (Incluyen       los valores mínimos y máximos):
+El software valida los datos incluso antes de insertarlos en la base de datos. Este le informa si usted ingresó un dato inválido. Estos son los rangos aceptados (Incluyente con los valores mínimos y máximos):
       
 Variable     | Minimo        | Máximo
 ------------ | ------------- | -------------
