@@ -21,8 +21,33 @@ el usuario y la contraseña.
 
 La clase principal es Agenda y se encuentra en Agenda/src/Agenda.
 
-### BASE DE DATOS: ESTRUCTURA
+###BASE DE DATOS: ESTRUCTURA
 
 El nombre de la base de datos es <agenda>. El nombre de la tabla de contactos es <contacto>. Asegúrese que usted cuente con esta estructura.
-![GitHub Logo](/Imagenes/Agenda/Estructura tabla contacto.png)
-Format: ![Alt Text](url)
+<p align="center">
+  <img src="https://github.com/DylanJo2002/DataBasesCourse/blob/main/Imagenes/Agenda/Estructura%20tabla%20contacto.PNG" width="1000" title="hover text">    
+</p>
+El código SQL para crear la tabla es el siguiente:
+<p align="center">
+  <img src="https://github.com/DylanJo2002/DataBasesCourse/blob/main/Imagenes/Agenda/create%20table%20contacto.PNG" width="1000" title="hover text">    
+</p>  
+     
+### VALIDACIONES DE DATOS: 
+El software valida los datos incluso antes de insertarlos en la base de datos. Este le informa si usted ingresó un dato inválido. Estos son los rangos aceptados (Incluyen       los valores mínimos y máximos):
+      
+Variable     | Minimo        | Máximo
+------------ | ------------- | -------------
+Nombre | 1 carácter | 100 carácteres
+Apellido | 1 carácter | 100 carácteres
+Edad | 0 | 120
+Género | No aplica | No aplica
+Teléfono | 1 carácter | 10 carácteres
+Email | 1 carácter | 100 carácteres
+      
+### POSIBLES ERRORES
+Si existen errores en la conectividad con PostgreSQL, por favor revise si su servicio está levantado y que usted cuente con la estructura.
+      
+# Sobre mí
+1. Nombre: Dilan Joel Bergaño Caicedo
+2. Código: 1925763-2711
+3. Email: dilan.bergano@correounivalle.edu.co
