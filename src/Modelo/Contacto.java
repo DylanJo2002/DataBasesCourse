@@ -56,6 +56,16 @@ public class Contacto implements Serializable {
 
     public Contacto() {
     }
+    
+    public Contacto(Contacto contacto){
+        this.id = contacto.id;
+        this.nombre = contacto.nombre;
+        this.apellido = contacto.apellido;
+        this.edad = contacto.edad;
+        this.genero = contacto.genero;
+        this.telefono = contacto.telefono;
+        this.email = contacto.email;
+    }
 
     public Contacto(Integer id) {
         this.id = id;
