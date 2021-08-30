@@ -8,6 +8,8 @@ package Controlador;
 import Agenda.Agenda;
 import Controlador.exceptions.NonexistentEntityException;
 import Modelo.Contacto;
+import javafx.event.EventHandler;
+import javafx.scene.control.TableColumn.CellEditEvent;
 import java.net.URL;
 import java.util.List;
 import java.util.Map;
@@ -28,12 +30,15 @@ import javafx.scene.control.TableCell;
 import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
 import javafx.scene.control.Tooltip;
+import javafx.scene.control.cell.*;
+import javafx.scene.control.cell.TextFieldTableCell;
 import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.scene.image.ImageView;
 import javafx.scene.layout.AnchorPane;
 import javafx.stage.Modality;
 import javafx.stage.Stage;
 import javafx.util.Callback;
+import javafx.util.converter.DefaultStringConverter;
 import javax.persistence.EntityManagerFactory;
 import javax.persistence.Persistence;
 
@@ -63,7 +68,7 @@ public class Principal_Controlador_FXML implements Initializable {
     @FXML
     private TableColumn<Contacto, String> columnaApellidos;
     @FXML
-    private TableColumn<Contacto, Integer> columnaEdad;
+    private TableColumn<Contacto, String> columnaEdad;
     @FXML
     private TableColumn<Contacto, String> columnaGenero;
     @FXML
@@ -162,15 +167,121 @@ public class Principal_Controlador_FXML implements Initializable {
         
     }
     
+    public void setColumnsCellFactory(){
+        columnaNombres.setCellFactory(TextFieldTableCell.forTableColumn());
+        columnaApellidos.setCellFactory(TextFieldTableCell.forTableColumn());
+        columnaEdad.setCellFactory(TextFieldTableCell.forTableColumn());
+        columnaGenero.setCellFactory(ComboBoxTableCell.forTableColumn(
+                new DefaultStringConverter(), "M","F"));
+        columnaTelefono.setCellFactory(TextFieldTableCell.forTableColumn());
+        columnaEmail.setCellFactory(TextFieldTableCell.forTableColumn());
+    }
+    
+    public void setCellsCommit(){
+        
+	columnaNombres.setOnEditCommit(new EventHandler<CellEditEvent<Contacto, String>>() {
+            @Override
+            public void handle(CellEditEvent<Contacto, String> event) {
+		Contacto person = event.getRowValue();
+		String nuevoValor = event.getNewValue().trim();
+                if(!nuevoValor.isEmpty() && nuevoValor.length()<=100){
+                    person.setNombre(nuevoValor);
+                }else {
+                    tabla.refresh();
+                }
+            }
+	});
+        
+	columnaApellidos.setOnEditCommit(new EventHandler<CellEditEvent<Contacto, String>>() {
+            @Override
+            public void handle(CellEditEvent<Contacto, String> event) {
+		Contacto person = event.getRowValue();
+		String nuevoValor = event.getNewValue().trim();
+                if(!nuevoValor.isEmpty() && nuevoValor.length()<=100){
+                    person.setApellido(nuevoValor);
+                }else {
+                    tabla.refresh();
+                }
+            }
+	});
+        
+	columnaEdad.setOnEditCommit(new EventHandler<CellEditEvent<Contacto, String>>() {
+            @Override
+            public void handle(CellEditEvent<Contacto, String> event) {
+		Contacto person = event.getRowValue();
+		try {
+                    int nuevaEdad = Integer.parseInt(event.getNewValue());
+                    if(nuevaEdad >= 0 && nuevaEdad <= 120){
+                        person.setEdad(nuevaEdad);
+                        return;
+                    }
+                    throw new NumberFormatException();
+                } catch(NumberFormatException ne){
+                    tabla.refresh();
+                }
+                
+
+            }
+	});
+        
+	columnaEdad.setOnEditCommit(new EventHandler<CellEditEvent<Contacto, String>>() {
+            @Override
+            public void handle(CellEditEvent<Contacto, String> event) {
+		Contacto person = event.getRowValue();
+		try {
+                    int nuevaEdad = Integer.parseInt(event.getNewValue());
+                    if(nuevaEdad >= 0 && nuevaEdad <= 120){
+                        person.setEdad(nuevaEdad);
+                        return;
+                    }
+                    throw new NumberFormatException();
+                } catch(NumberFormatException ne){
+                    tabla.refresh();
+                }
+                
+
+            }
+	});
+
+	columnaGenero.setOnEditCommit(new EventHandler<CellEditEvent<Contacto, String>>() {
+            @Override
+            public void handle(CellEditEvent<Contacto, String> event) {
+		Contacto person = event.getRowValue();
+		String nuevoValor = event.getNewValue().trim();
+                if(!nuevoValor.isEmpty() && nuevoValor.length()<=10){
+                    person.setGenero(nuevoValor.charAt(0));
+                }else {
+                    tabla.refresh();
+                }
+            }
+	});
+        
+	columnaEmail.setOnEditCommit(new EventHandler<CellEditEvent<Contacto, String>>() {
+            @Override
+            public void handle(CellEditEvent<Contacto, String> event) {
+		Contacto person = event.getRowValue();
+		String nuevoValor = event.getNewValue().trim();
+                if(!nuevoValor.isEmpty() && nuevoValor.length()<=100){
+                    person.setEmail(nuevoValor);
+                }else {
+                    tabla.refresh();
+                }
+            }
+	});
+    }
+        
     @Override
     public void initialize(URL location, ResourceBundle resources) {
         columnaID.setCellValueFactory(new PropertyValueFactory<Contacto,String>("id"));
         columnaNombres.setCellValueFactory(new PropertyValueFactory<Contacto,String>("nombre"));
         columnaApellidos.setCellValueFactory(new PropertyValueFactory<Contacto,String>("apellido"));
-        columnaEdad.setCellValueFactory(new PropertyValueFactory<Contacto,Integer>("edad"));
+        columnaEdad.setCellValueFactory(new PropertyValueFactory<Contacto,String>("edad"));
         columnaGenero.setCellValueFactory(new PropertyValueFactory<Contacto,String>("genero"));
         columnaTelefono.setCellValueFactory(new PropertyValueFactory<Contacto,String>("telefono"));
         columnaEmail.setCellValueFactory(new PropertyValueFactory<Contacto,String>("email"));
+        
+        setColumnsCellFactory();
+        setCellsCommit();
         for (TableColumn<Contacto,?> columna : tabla.getColumns()){
             columna.setResizable(false);
         }

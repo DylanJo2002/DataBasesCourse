@@ -85,16 +85,16 @@ public class Contacto implements Serializable {
         this.apellido = apellido;
     }
 
-    public Integer getEdad() {
-        return edad;
+    public String getEdad() {
+        return edad.toString();
     }
 
     public void setEdad(Integer edad) {
         this.edad = edad;
     }
 
-    public Character getGenero() {
-        return genero;
+    public String getGenero() {
+        return genero.toString();
     }
 
     public void setGenero(Character genero) {
