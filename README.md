@@ -22,9 +22,9 @@ el usuario y la contraseña.
 
 La clase principal es Agenda y se encuentra en Agenda/src/Agenda.
 
-###BASE DE DATOS: ESTRUCTURA
+### BASE DE DATOS: ESTRUCTURA
 
-El nombre de la base de datos es <agenda>. El nombre de la tabla de contactos es <contacto>. Asegúrese que usted cuente con esta estructura.
+El nombre de la base de datos es 'agenda'. El nombre de la tabla de contactos es 'contacto'. Asegúrese que usted cuente con esta estructura.
 <p align="center">
   <img src="https://github.com/DylanJo2002/DataBasesCourse/blob/main/Imagenes/Agenda/Estructura%20tabla%20contacto.PNG" width="1000" title="hover text">    
 </p>
@@ -47,7 +47,6 @@ Email | 1 carácter | 100 carácteres
       
 ### POSIBLES ERRORES
 Si existen errores en la conectividad con PostgreSQL, por favor revise si su servicio está levantado y que usted cuente con la estructura.
-      
 # Sobre mí
 1. Nombre: Dilan Joel Bergaño Caicedo
 2. Código: 1925763-2711
