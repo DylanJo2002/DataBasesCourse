@@ -1,8 +1,8 @@
 #NetBeans specific #
-/nbproject/private/
-/build/
-/nbbuild/
-/nbdist/
+nbproject/private/
+build/
+nbbuild/
+nbdist/
 nbactions.xml
 nb-configuration.xml
 
