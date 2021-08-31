@@ -5,10 +5,9 @@ Proyectos y trabajos del curso de bases de datos I, en la Universidad del Valle
 Carpeta: Agenda
 ### Tecnologías usadas 
 1. Lenguaje: Java 
-2. Vistas: JavaFX con Scene Builder
-3. Persistencia: JPA framework
-4. Base de datos: PostgreSQL
-5. IDE: NetBeans
+2. Persistencia: JPA framework
+3. Base de datos: PostgreSQL
+4. IDE: NetBeans
 
 ### Getting Started 
 
